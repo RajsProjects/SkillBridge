@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Brand Colors -->
+    <color name="orange_primary">#E86321</color>
+    <color name="orange_dark">#C94E15</color>
+
+    <!-- Background Colors -->
+    <color name="bg_main">#F5F4F0</color> <!-- Screen ka background color -->
+    <color name="white">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#6B6B6B</color>
+</resources>
