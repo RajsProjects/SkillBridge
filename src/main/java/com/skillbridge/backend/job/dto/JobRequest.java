@@ -1,7 +1,6 @@
 package com.skillbridge.backend.job.dto;
 
 import jakarta.validation.constraints.*;
-import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -9,7 +8,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Builder
 public class JobRequest {
 
     @NotBlank(message = "Title is required")
@@ -28,6 +26,5 @@ public class JobRequest {
 
     private LocalDate deadline;
 
-    @Builder.Default
     private Boolean isRemote = true;
 }

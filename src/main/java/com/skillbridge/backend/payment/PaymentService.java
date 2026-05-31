@@ -55,7 +55,7 @@ public class PaymentService {
         BigDecimal razorpayFee = amount.multiply(RAZORPAY_FEE_RATE).setScale(2, RoundingMode.HALF_UP);
         BigDecimal netReceived = amount.subtract(razorpayFee);
         BigDecimal commission = amount.multiply(COMMISSION_RATE).setScale(2, RoundingMode.HALF_UP);
-        BigDecimal payout     = amount.subtract(commission);
+        BigDecimal payout      = netReceived.subtract(commission); 
 
         // Razorpay needs amount in paise (1 INR = 100 paise)
         long amountInPaise = amount.multiply(BigDecimal.valueOf(100)).longValue();
@@ -85,6 +85,8 @@ public class PaymentService {
                 .paymentId(payment.getId())
                 .razorpayOrderId(razorpayOrderId)
                 .amount(amount)
+                .razorpayFee(razorpayFee)
+                .netReceived(netReceived)
                 .commission(commission)
                 .studentPayout(payout)
                 .currency(CURRENCY)
@@ -202,19 +204,19 @@ public class PaymentService {
     @Transactional(readOnly = true)
     public Page<PaymentBillResponse> getPendingPayouts(Pageable pageable) {
         return paymentRepository
-                .findByStatusAndPayoutSent(PaymentStatus.RELEASED, false, pageable)
+                .findByStatusAndPayoutSentFetched(PaymentStatus.RELEASED, false, pageable)
                 .map(this::toBill);
     }
 
     @Transactional(readOnly = true)
     public Page<PaymentBillResponse> getStudentPaymentHistory(UUID studentId, Pageable pageable) {
-        return paymentRepository.findByStudentId(studentId, pageable)
+        return paymentRepository.findByStudentIdFetched(studentId, pageable)
                 .map(this::toBill);
     }
 
     @Transactional(readOnly = true)
     public Page<PaymentBillResponse> getClientPaymentHistory(UUID clientId, Pageable pageable) {
-        return paymentRepository.findByClientId(clientId, pageable)
+        return paymentRepository.findByClientIdFetched(clientId, pageable)
                 .map(this::toBill);
     }
 

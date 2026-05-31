@@ -20,6 +20,9 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
     Page<Payment> findByClientId(UUID clientId, Pageable pageable);
     Page<Payment> findByStudentId(UUID studentId, Pageable pageable);
 
+    Page<Payment> findByStatusAndPayoutSent(
+            PaymentStatus status, Boolean payoutSent, Pageable pageable);
+
     @Query("""
         SELECT COALESCE(SUM(p.studentPayout), 0)
         FROM Payment p
@@ -36,6 +39,41 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
     """)
     BigDecimal getPendingEarningsByStudentId(@Param("studentId") UUID studentId);
 
-    Page<Payment> findByStatusAndPayoutSent(
-            PaymentStatus status, Boolean payoutSent, Pageable pageable);
+    // ── Optimized fetch queries (no N+1) ──────────────────
+
+    @Query("""
+        SELECT p FROM Payment p
+        JOIN FETCH p.contract c
+        JOIN FETCH c.job
+        JOIN FETCH p.client
+        JOIN FETCH p.student
+        WHERE p.student.id = :studentId
+    """)
+    Page<Payment> findByStudentIdFetched(
+            @Param("studentId") UUID studentId, Pageable pageable);
+
+    @Query("""
+        SELECT p FROM Payment p
+        JOIN FETCH p.contract c
+        JOIN FETCH c.job
+        JOIN FETCH p.client
+        JOIN FETCH p.student
+        WHERE p.client.id = :clientId
+    """)
+    Page<Payment> findByClientIdFetched(
+            @Param("clientId") UUID clientId, Pageable pageable);
+
+    @Query("""
+        SELECT p FROM Payment p
+        JOIN FETCH p.contract c
+        JOIN FETCH c.job
+        JOIN FETCH p.client
+        JOIN FETCH p.student
+        WHERE p.status = :status
+        AND p.payoutSent = :payoutSent
+    """)
+    Page<Payment> findByStatusAndPayoutSentFetched(
+            @Param("status") PaymentStatus status,
+            @Param("payoutSent") Boolean payoutSent,
+            Pageable pageable);
 }

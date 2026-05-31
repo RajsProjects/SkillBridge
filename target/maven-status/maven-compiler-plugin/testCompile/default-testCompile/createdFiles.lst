@@ -1,0 +1,8 @@
+com\skillbridge\backend\payment\PaymentServiceTest.class
+com\skillbridge\backend\BackendApplicationTests.class
+com\skillbridge\backend\auth\AuthServiceTest.class
+com\skillbridge\backend\auth\AuthControllerTest.class
+com\skillbridge\backend\job\JobServiceTest.class
+com\skillbridge\backend\payment\PaymentIntegrationTest.class
+com\skillbridge\backend\common\config\TestConfig.class
+com\skillbridge\backend\payment\RazorpayClientTest.class

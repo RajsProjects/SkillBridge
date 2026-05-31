@@ -17,16 +17,17 @@ public interface JobRepository extends JpaRepository<Job, UUID> {
     Page<Job> findByClientId(UUID clientId, Pageable pageable);
 
     @Query("""
-        SELECT j FROM Job j
-        WHERE j.status = 'OPEN'
-        AND (:category IS NULL OR j.category = :category)
-        AND (:minBudget IS NULL OR j.budget >= :minBudget)
-        AND (:maxBudget IS NULL OR j.budget <= :maxBudget)
-        AND (:isRemote IS NULL OR j.isRemote = :isRemote)
-        AND (:keyword IS NULL OR LOWER(j.title) LIKE LOWER(CONCAT('%', :keyword, '%'))
-             OR LOWER(j.description) LIKE LOWER(CONCAT('%', :keyword, '%')))
-        ORDER BY j.createdAt DESC
-    """)
+    SELECT j FROM Job j
+    JOIN FETCH j.client
+    WHERE j.status = 'OPEN'
+    AND (:category IS NULL OR j.category = :category)
+    AND (:minBudget IS NULL OR j.budget >= :minBudget)
+    AND (:maxBudget IS NULL OR j.budget <= :maxBudget)
+    AND (:isRemote IS NULL OR j.isRemote = :isRemote)
+    AND (:keyword IS NULL OR LOWER(j.title) LIKE LOWER(CONCAT('%', :keyword, '%'))
+         OR LOWER(j.description) LIKE LOWER(CONCAT('%', :keyword, '%')))
+    ORDER BY j.createdAt DESC
+""")
     Page<Job> searchJobs(
             @Param("category") String category,
             @Param("minBudget") BigDecimal minBudget,

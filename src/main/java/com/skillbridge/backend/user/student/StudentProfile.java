@@ -35,11 +35,11 @@ public class StudentProfile {
     @Column(columnDefinition = "TEXT")
     private String bio;
 
-    @Column(columnDefinition = "TEXT[]")
+    @Column(columnDefinition = "TEXT")
     @Convert(converter = StringListConverter.class)
     private List<String> skills;
 
-    @Column(columnDefinition = "TEXT[]")
+    @Column(columnDefinition = "TEXT")
     @Convert(converter = StringListConverter.class)
     private List<String> portfolioLinks;
 
