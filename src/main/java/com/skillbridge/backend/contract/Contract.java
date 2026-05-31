@@ -5,9 +5,6 @@ import com.skillbridge.backend.job.Job;
 import com.skillbridge.backend.user.User;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,7 +12,6 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "contracts")
-@EntityListeners(AuditingEntityListener.class)
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -48,13 +44,18 @@ public class Contract {
 
     private String submissionUrl;
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
     private LocalDateTime startedAt;
-
     private LocalDateTime completedAt;
-
-    @LastModifiedDate
-    @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void prePersist() {
+        if (startedAt == null) startedAt = LocalDateTime.now();
+        if (updatedAt == null) updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void preUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

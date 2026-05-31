@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------
+Test set: com.skillbridge.backend.payment.PaymentIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.358 s <<< FAILURE! -- in com.skillbridge.backend.payment.PaymentIntegrationTest
+com.skillbridge.backend.payment.PaymentIntegrationTest.createOrder_returns_201_with_breakdown -- Time elapsed: 0.023 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.skillbridge.backend.auth.token.RefreshTokenRepository.deleteAll()" because "com.skillbridge.backend.payment.PaymentIntegrationTest.refreshTokenRepository" is null
+	at com.skillbridge.backend.payment.PaymentIntegrationTest.setUp(PaymentIntegrationTest.java:66)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.skillbridge.backend.payment.PaymentIntegrationTest.verify_payment_fails_with_invalid_signature -- Time elapsed: 0.017 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.skillbridge.backend.auth.token.RefreshTokenRepository.deleteAll()" because "com.skillbridge.backend.payment.PaymentIntegrationTest.refreshTokenRepository" is null
+	at com.skillbridge.backend.payment.PaymentIntegrationTest.setUp(PaymentIntegrationTest.java:66)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

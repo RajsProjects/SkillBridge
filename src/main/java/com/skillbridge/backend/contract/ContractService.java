@@ -126,13 +126,13 @@ public class ContractService {
 
     @Transactional(readOnly = true)
     public Page<ContractResponse> getMyContractsAsClient(UUID clientId, Pageable pageable) {
-        return contractRepository.findByClientId(clientId, pageable)
+        return contractRepository.findByClientIdFetched(clientId, pageable)
                 .map(this::toResponse);
     }
 
     @Transactional(readOnly = true)
     public Page<ContractResponse> getMyContractsAsStudent(UUID studentId, Pageable pageable) {
-        return contractRepository.findByStudentId(studentId, pageable)
+        return contractRepository.findByStudentIdFetched(studentId, pageable)
                 .map(this::toResponse);
     }
 

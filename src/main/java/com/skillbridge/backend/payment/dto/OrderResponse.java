@@ -12,6 +12,8 @@ public class OrderResponse {
     private UUID paymentId;
     private String razorpayOrderId;
     private BigDecimal amount;
+    private BigDecimal razorpayFee;
+    private BigDecimal netReceived;
     private BigDecimal commission;
     private BigDecimal studentPayout;
     private String currency;

@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
-public class JwtUtil {
+public class    JwtUtil {
 
     private final SecretKey secretKey;
     private final long accessTokenExpiry;
@@ -43,6 +43,7 @@ public class JwtUtil {
     public String generateRefreshToken(UUID userId) {
         return Jwts.builder()
                 .subject(userId.toString())
+                .id(UUID.randomUUID().toString())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + refreshTokenExpiry))
                 .signWith(secretKey)

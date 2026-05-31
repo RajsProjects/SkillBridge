@@ -1,3 +1,43 @@
 spring:
   application:
-    name: backend
+    name: skillbridge
+
+  datasource:
+    url: jdbc:h2:mem:skillbridge_test;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;NON_KEYWORDS=VALUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: false
+
+  flyway:
+    enabled: false
+
+jwt:
+  secret: dGVzdHNlY3JldGtleWZvcnNraWxsYnJpZGdldGVzdGluZ29ubHkxMjM0NTY=
+  access-token-expiry: 900000
+  refresh-token-expiry: 604800000
+
+razorpay:
+  key-id: test_key
+  key-secret: test_secret
+  webhook-secret: test_webhook
+  base-url: http://localhost:8089
+
+cloudinary:
+  cloud-name: test
+  api-key: test
+  api-secret: test
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
