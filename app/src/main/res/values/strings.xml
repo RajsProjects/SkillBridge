@@ -10,4 +10,6 @@
     <string name="welcome_back1">Welcome Back</string>
     <string name="access_your_dashboard_and_active_gigs1">Access your dashboard and active gigs.</string>
     <string name="email_address1">Email Address</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

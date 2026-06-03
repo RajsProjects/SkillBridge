@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/nav_gigs"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Gigs" />
+    <item
+        android:id="@+id/nav_messages"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="Messages" />
+    <item
+        android:id="@+id/nav_finances"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Finances" />
+</menu>

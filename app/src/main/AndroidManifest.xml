@@ -22,6 +22,10 @@
             android:name=".Login_screen"
             android:exported="false" />
         <activity
+            android:name=".activity_student_host"
+            android:exported="false"
+            android:screenOrientation="portrait"  />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"

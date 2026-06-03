@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/student_nav_graph"
+    app:startDestination="@id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.skillbridge.DashboardFragment"
+        android:label="Dashboard" />
+
+    <fragment
+        android:id="@+id/nav_gigs"
+        android:name="com.example.skillbridge.GigsFragment"
+        android:label="Gigs" />
+
+    <fragment
+        android:id="@+id/nav_messages"
+        android:name="com.example.skillbridge.MessagesFragment"
+        android:label="Messages" />
+
+    <fragment
+        android:id="@+id/nav_finances"
+        android:name="com.example.skillbridge.FinancesFragment"
+        android:label="Finances" />
+
+</navigation>

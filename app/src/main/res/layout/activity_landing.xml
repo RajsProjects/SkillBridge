@@ -79,9 +79,9 @@
                 android:layout_height="55dp"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/bg_input"
+                android:background="@drawable/bg_button_orange"
                 android:text="HIRE A STUDENT"
-                android:textColor="@color/brand_orange"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="12sp"/>
         </LinearLayout>
