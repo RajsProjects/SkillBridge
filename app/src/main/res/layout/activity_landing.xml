@@ -1,10 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_landing">
+    android:background="@color/bg_light"
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Top Header Area -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SkillBridge"
+                android:textColor="@color/brand_orange"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_input"
+                android:src="@android:drawable/ic_menu_myplaces" />
+        </RelativeLayout>
+
+        <!-- Hero Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Students earn experience.\nBusinesses get affordable talent."
+            android:textColor="@color/text_main"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The only India-focused marketplace connecting the ambition of college students with the needs of fast-growing startups."
+            android:textColor="@color/text_sub"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="40dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnJoinStudent"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_button_orange"
+                android:text="JOIN AS STUDENT"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnHireStudent"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_input"
+                android:text="HIRE A STUDENT"
+                android:textColor="@color/brand_orange"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- Statistics Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="48dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5%"
+                    android:textColor="@color/text_main"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low Commission"
+                    android:textColor="@color/text_sub"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100%"
+                    android:textColor="@color/text_main"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Secure Escrow"
+                    android:textColor="@color/text_sub"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="India"
+                    android:textColor="@color/text_main"
+                    android:textSize="24sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Native Platform"
+                    android:textColor="@color/text_sub"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Top Categories Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Top Categories"
+            android:textColor="@color/text_main"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Horizontal Scrollable Category Cards -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Card 1 -->
+                <LinearLayout
+                    android:layout_width="240dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/bg_input"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instagram Design"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_main"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Strategic post design and reel editing for brands."
+                        android:textColor="@color/text_sub"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <!-- Card 2 -->
+                <LinearLayout
+                    android:layout_width="240dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/bg_input"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Content Writing"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_main"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Blogs, SEO copy, and creative writing services."
+                        android:textColor="@color/text_sub"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <!-- Card 3 -->
+                <LinearLayout
+                    android:layout_width="240dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/bg_input"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tech Support"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_main"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Web fixes, debugging, React, and Python support."
+                        android:textColor="@color/text_sub"
+                        android:layout_marginTop="8dp"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+</ScrollView>

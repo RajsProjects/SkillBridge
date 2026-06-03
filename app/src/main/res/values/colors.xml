@@ -19,5 +19,6 @@
         <color name="text_sub">#6B6B6B</color>
         <color name="input_bg">#F5F5F5</color>
         <color name="input_border">#E0E0E0</color>
-    <color name="dark_black">#0A0A0A</color>
+        <color name="splash_bg">#0D0E0E</color>
+
 </resources>

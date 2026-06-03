@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SkillBridge</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="start_your_journey_and_land_your_first_gig">Start your journey and land your first gig.</string>
+    <string name="full_name">Full Name</string>
+    <string name="log_in1">Log In</string>
+    <string name="sign_up1">Sign Up</string>
+    <string name="welcome_back1">Welcome Back</string>
+    <string name="access_your_dashboard_and_active_gigs1">Access your dashboard and active gigs.</string>
+    <string name="email_address1">Email Address</string>
 </resources>

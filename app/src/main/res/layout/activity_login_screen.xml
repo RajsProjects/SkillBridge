@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Custom Toggle Button (Log In / Sign Up) -->
         <LinearLayout
             android:id="@+id/toggleLayout"
             android:layout_width="match_parent"
@@ -28,19 +27,21 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_toggle_active"
                 android:gravity="center"
-                android:text="Log In"
+                android:text="@string/log_in1"
                 android:textColor="@color/brand_orange"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvToggleSignup"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Sign Up"
-                android:textColor="@color/text_sub"
+                android:text="@string/sign_up1"
+                android:textColor="@color/brand_orange"
                 android:textSize="16sp" />
+
         </LinearLayout>
 
         <!-- Welcome Texts -->
@@ -49,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Welcome Back"
+            android:text="@string/welcome_back1"
             android:textColor="@color/text_main"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -61,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Access your dashboard and active gigs."
+            android:text="@string/access_your_dashboard_and_active_gigs1"
             android:textColor="@color/text_sub"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Email Address"
+            android:text="@string/email_address1"
             android:textColor="@color/text_main"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,63 +1,54 @@
 package com.example.skillbridge;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 
-import com.example.skillbridge.databinding.ActivitySingupScreenBinding;
-import com.example.skillbridge.databinding.ActivitySingupScreenBinding;
+public class signup_screen extends AppCompatActivity {
 
-public class singup_screen extends AppCompatActivity {
+    private EditText etName, etEmail, etPassword;
+    private TextView tvToggleLogin;
+    private Button btnSignup;
 
-    private ActivitySingupScreenBinding binding;
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 1. Transparent Bars Setup (Light background = true for dark icons)
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        WindowInsetsControllerCompat windowInsetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
-        windowInsetsController.setAppearanceLightStatusBars(true);
-        windowInsetsController.setAppearanceLightNavigationBars(true);
+        setContentView(R.layout.activity_singup_screen);
 
-        // 2. View Binding Setup
-        binding = ActivitySingupScreenBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
-        // 3. Click Listeners
+        etName = findViewById(R.id.etName);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        tvToggleLogin = findViewById(R.id.tvToggleLogin);
+        btnSignup = findViewById(R.id.btnSignup);
 
-        // "Already have an account? Log In" text click
-        binding.tvAlreadyAccount.setOnClickListener(v -> {
-            goToLogin();
-        });
 
-        // Top toggle "Log In" click
-        binding.tvToggleLogin.setOnClickListener(v -> {
-            goToLogin();
-        });
-
-        // Main Sign Up Button click
-        binding.btnSignup.setOnClickListener(v -> {
-            String name = binding.etName.getText().toString().trim();
-            String email = binding.etEmail.getText().toString().trim();
-            String password = binding.etPassword.getText().toString().trim();
+        btnSignup.setOnClickListener(v -> {
+            String name = etName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(singup_screen.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(signup_screen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(singup_screen.this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
+                Intent signup = new Intent(signup_screen.this , LandingActivity.class);
+                startActivity(signup);
+                finish();
             }
         });
-    }
 
-    private void goToLogin() {
-        Intent intent = new Intent(singup_screen.this, Login_screen.class);
-        startActivity(intent);
-        finish();
+
+        tvToggleLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(signup_screen.this, Login_screen.class);
+            startActivity(intent);
+            finish();
+        });
     }
 }

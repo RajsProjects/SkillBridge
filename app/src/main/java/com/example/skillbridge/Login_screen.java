@@ -1,14 +1,19 @@
-package com.example.skillbridge; // Apna package name check kar lein
-
+package com.example.skillbridge; //
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.skillbridge.databinding.ActivitySingupScreenBinding;
 
 public class Login_screen extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
+    private TextView SingUp ;
     private Button btnLogin;
 
     @Override
@@ -20,6 +25,7 @@ public class Login_screen extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        SingUp = findViewById(R.id.tvToggleSignup);
 
 
         btnLogin.setOnClickListener(v -> {
@@ -28,10 +34,19 @@ public class Login_screen extends AppCompatActivity {
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(Login_screen.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
-            } else {
-
-                Toast.makeText(Login_screen.this, "Connecting to SkillBridge Backend...", Toast.LENGTH_SHORT).show();
             }
+
+            else {
+                Intent login = new Intent(Login_screen.this , LandingActivity.class);
+                startActivity(login);
+                finish();
+            }
+        });
+
+       SingUp.setOnClickListener(v -> {
+            Intent intent = new Intent(Login_screen.this, signup_screen.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
