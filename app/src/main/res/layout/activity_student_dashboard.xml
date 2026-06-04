@@ -88,6 +88,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tvWelcomeName"
                     android:text=" Aria!"
                     android:textColor="#1F2937"
                     android:textSize="22sp"

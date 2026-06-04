@@ -26,24 +26,19 @@
                 android:textStyle="bold"
                 android:layout_centerVertical="true"/>
 
-            <ImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/bg_input"
-                android:src="@android:drawable/ic_menu_myplaces" />
+
         </RelativeLayout>
 
         <!-- Hero Section -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="Students earn experience.\nBusinesses get affordable talent."
             android:textColor="@color/text_main"
             android:textSize="32sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
